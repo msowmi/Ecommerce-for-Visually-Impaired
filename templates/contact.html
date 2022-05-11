@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All Products | Trendy Stop</title>
+  <link rel="stylesheet" href="static/styles/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+   <style media="screen">
+
+      body {
+          background-color: rgb(20, 46, 80);
+      }
+
+   </style>
+</head>
+<body>
+
+      <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <!-- <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+        </div> -->
+        <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+          <!-- <h5 id="welcome">welcome</h5> -->
+          <!-- <h2 id="name">Sowmya</h2> -->
+          {% if data %}
+      <h5 id="welcome">welcome</h5>
+     <h1 id="name">{{data}}</h1>
+     {% endif %}
+        </div>
+        <div class="nav">
+           <label for="toggle">&#9776;</label>
+           <input type="checkbox" id="toggle"/>
+           <div class="menu">
+            <a href="/" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Home</a>
+            <a href="/products" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Products</a>
+             <a href="/about" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">About</a>
+             <a href="/contact" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact</a>
+               {% if data %}
+                <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Logout</a>
+                {% else %}
+             <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</a>
+             <a href="/sign" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</a>
+             {% endif %}
+           </div>
+        </div>
+      </div>
+      <br><br>
+
+
+
+    </div>
+  </div>
+    <section id="contact">
+        <div class="container">
+          <h1 onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact Us</h1>
+          <div class="row">
+            <div class="col-md-6">
+              <form class="contact-form">
+                <div class="form-group" id="field">
+                  <input type="text" class="form-control" placeholder="Your Name" id="fill1" required onmouseenter="read('Enter your name')" onmouseleave="readStop()"><br>
+                </div>
+                <div class="form-group" id="field">
+                  <input type="number" class="form-control" placeholder="Phone no." id="fill2" required onmouseenter="read('Enter your Phone Number')" onmouseleave="readStop()"><br>
+                </div>
+                <div class="form-group" id="field">
+                  <input type="email" class="form-control" placeholder="Email id" id="fill3" required onmouseenter="read('Enter your email id')" onmouseleave="readStop()"><br>
+                </div>
+                <br>
+                <div class="form-group" >
+                  <textarea class="form-control" rows="4" placeholder="Message" id="fill4" style="resize: none;" wrap="soft" required onmouseenter="read('Type a message')" onmouseleave="readStop()"></textarea><br>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="message()" onmouseenter="readAloud(this)" onmouseleave="readStop()">SEND MESSAGE &nbsp<i class="far fa-paper-plane"></i></button>
+              </form>
+            </div>
+            <div class="col-md-6 contact-info">
+              <div class="follow" onmouseenter="readAloud(this)" onmouseleave="readStop()">
+                <i class="fas fa-address-card"></i> <b >Address: </b>27/1 , XYZ Road, Chennai.
+              </div>
+             <div class="follow" onmouseenter="readAloud(this)" onmouseleave="readStop()">
+                <i class="fas fa-phone"></i> <b>Phone: </b>
+
+                +91 1234567890
+              </div>
+            <div class="follow" onmouseenter="readAloud(this)" onmouseleave="readStop()">
+              <i class="fas fa-envelope"></i> <b>Email: </b>
+                trendystop@official.com
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+  <script src="js/smooth-scroll.js"></script>
+
+ <!-- footer -->
+ <div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col-1">
+        <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download Our App</h3>
+        <h4 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download App for Android and iOS mobile phone.</h4>
+        <div class="app-logo">
+          <br>
+          <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Get it on</p>
+          <br>
+          <img src="static/images/play-store.png" alt=""  onmouseenter="read('Google play')" onmouseleave="readStop()">
+              <img src="static/images/app-store.png" alt="" onmouseenter="read('App Store')" onmouseleave="readStop()">
+        </div>
+      </div>
+      <div class="footer-col-2">
+        <img src="static/images/logo.png" alt="" onmouseenter="read('Trendy Stop')" onmouseleave="readStop()">
+        <p onmouseenter="readAloud(this)" onmouseleave="readStop()">We aim to provide user-friendly services. <br>Your happiness is our priority!</p>
+      </div>
+      <div class="footer-col-3">
+        <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Useful Links</h3>
+        <ul>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Coupons</li>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Blog Post</li>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Return Policy</li>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Join Affiliate</li>
+        </ul>
+      </div>
+      <div class="footer-col-4">
+        <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Follow Us</h3>
+        <ul>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-facebook-f"></i>  Facebook</li>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-twitter"></i>  Twitter</li>
+          <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-instagram"></i> Instagram</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="Copyright" onmouseenter="readAloud(this)" onmouseleave="readStop()"> &copy; Copyright 2022 @Trendy Stop</p>
+   </hr>
+  </div>
+</div>
+  </div>
+  <script>
+    /* JS comes here */
+    var msg = new SpeechSynthesisUtterance();
+    // var enable=true;
+    // function clkfun(){
+    //     enable=!enable;
+    // }
+    function readStop(){
+        window.speechSynthesis.cancel(msg);
+    }
+    function read(txt){
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(txt));
+        }
+    function readAloud(ctrl) {
+        //if(enable==true){
+            msg.text = ctrl.innerHTML;
+            window.speechSynthesis.speak(msg);
+        //}
+    }
+
+</script>
+ <script>
+ function message() {
+    var userValue1 = document.getElementById('fill1').value;
+    var userValue2 = document.getElementById('fill2').value;
+    var userValue3 = document.getElementById('fill3').value;
+    var userValue4 = document.getElementById('fill4').value;
+    if (userValue1 == "" || userValue2 == "" || userValue3 == "" || userValue4 == "" )
+    {
+            alert("field value missing");
+
+    }
+    var atposition=userValue3.indexOf("@");
+    var dotposition=userValue3.lastIndexOf(".");
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=userValue3.length){
+        alert("Please enter a valid e-mail address");
+
+    }
+    else{
+      window.alert("Your message has been sent sucessfully!");
+    }
+
+}
+ </script>
+
+</body>
+
+</html>
