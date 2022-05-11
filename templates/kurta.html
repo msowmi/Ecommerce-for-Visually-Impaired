@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kurta | Trendy Stop</title>
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <style>
+            body {
+                background: linear-gradient(#9796f0, #fbc7d4);
+            }
+        </style>
+
+
+</head>
+
+<body>
+
+    <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <!-- <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+        </div> -->
+        <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+          <!-- <h5 id="welcome">welcome</h5> -->
+          <!-- <h2 id="name">Sowmya</h2> -->
+          {% if data %}
+      <h5 id="welcome">welcome</h5>
+     <h1 id="name">{{data}}</h1>
+     {% endif %}
+        </div>
+        <div class="nav">
+           <label for="toggle">&#9776;</label>
+           <input type="checkbox" id="toggle"/>
+           <div class="menu">
+            <a href="/" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Home</a>
+            <a href="/products" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Products</a>
+             <a href="/about" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">About</a>
+             <a href="/contact" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact</a>
+               {% if data %}
+                <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Logout</a>
+                {% else %}
+             <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</a>
+             <a href="/sign" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</a>
+             {% endif %}
+           </div>
+        </div>
+      </div>
+      <br><br>
+
+
+
+    </div>
+  </div>
+
+    <section class="container content-section">
+        <div class="shop-items">
+            <div class="shop-item">
+                <div class="small-container single-product">
+                    <div class="row">
+                        <div class="col-2">
+                            <img class="shop-item-image" src="static/images/kurta2.png" id="ProductImg">
+                            <br><br>
+                            <div class="small-img-row">
+
+                                <div class="small-img-col">
+                                    <img src="static/images/kurtaL1.png" width="100%" class="small-img">
+                                </div>
+                                <div class="small-img-col">
+                                    <img src="static/images/kurtaL2.png" class="small-img" width="100%">
+                                </div>
+                                <div class="small-img-col">
+                                    <img src="static/images/kurtaL3.png" class="small-img" width="100%">
+                                </div>
+                                <div class="small-img-col">
+                                    <img src="static/images/kurtaL4.png" class="small-img" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <span class="shop-item-title"><h1 onmouseenter="readAloud(this)" onmouseleave="readStop()">Women Kurta and Pant Set Rayon</h1></span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price"><h2 onmouseenter="read('Discount Price Rs.569')" onmouseleave="readStop()">Rs.569</h2></span>
+                                <p style="text-decoration: line-through;" onmouseenter="read('Original price Rs.789')" onmouseleave="readStop()">
+                                    Rs.789
+                                </p>
+
+                                <div class="rating" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <form action="/cart" method="POST">
+                                    <input type="hidden" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="Mi Smart Band 5 – India’s No. 1 Fitness Band, 1.1-inch AMOLED Color Display" name="detail">
+                                    <input type="hidden" name="credential" value="569">
+                                <button class="btn btn-primary shop-item-button" type="submit" onmouseenter="readAloud(this)" onmouseleave="readStop()">ADD TO CART <i class="fas fa-shopping-cart fa-2x"></i></button>
+                            </form>                            </div>
+                            <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Size Options: </p>
+                            <button class="btn btn-size" type="button" onmouseenter="read('2 X Large')" onmouseleave="readStop()">XXL</button>
+                            <button class="btn btn-size" type="button" onmouseenter="read('Extra large')" onmouseleave="readStop()">XL</button>
+                            <button class="btn btn-size" type="button" onmouseenter="read('Large')" onmouseleave="readStop()">L</button>
+                            <button class="btn btn-size" type="button" onmouseenter="read('Medium')" onmouseleave="readStop()">M</button>
+                            <button class="btn btn-size" type="button" onmouseenter="read('Small')" onmouseleave="readStop()">S</button>
+                            <!-- <h4>Rs.569</h4> -->
+                            <!-- <select>
+                        <option onmouseenter="readAloud(this)" onmouseleave="readStop()">Select Size</option>
+                        <option onmouseenter="readAloud(this)" onmouseleave="readStop()">XXL</option>
+                        <option onmouseenter="readAloud(this)" onmouseleave="readStop()">XL</option>
+                        <option onmouseenter="readAloud(this)" onmouseleave="readStop()">Large</option>
+                        <option onmouseenter="readAloud(this)" onmouseleave="readStop()">Medium</option>
+                        <option onmouseenter="readAloud(this)" onmouseleave="readStop()">Small</option>
+                      </select> -->
+                            <br><br><br><br><br>
+                            <!-- <a href="cart.html" class="btn">Add To Cart</a> -->
+                            <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Product Details <i class="fas fa-indent"></i></h3>
+                            <br>
+                            <ul>
+                                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Care Instructions: Dry Clean Only</li>
+                                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Fit Type: Regular</li>
+                                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Kurta and Palazzo Fabric: Rayon</li>
+                                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Package Contain :Kurta ,Bottom</li>
+                                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Style: Straight || Length: Calf Length || Sleeves: 3/4</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container content-section">
+        <h2 class="section-header" onmouseenter="readAloud(this)" onmouseleave="readStop()">YOUR CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column" onmouseenter="readAloud(this)" onmouseleave="readStop()">ITEM</span>
+            <span class="cart-price cart-header cart-column" onmouseenter="readAloud(this)" onmouseleave="readStop()">PRICE</span>
+            <span class="cart-quantity cart-header cart-column" onmouseenter="readAloud(this)" onmouseleave="readStop()">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title" onmouseenter="readAloud(this)" onmouseleave="readStop()">Total</strong>
+            <span class="cart-total-price" onmouseenter="readAloud(this)" onmouseleave="readStop()">Rs.0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button" onmouseenter="readAloud(this)" onmouseleave="readStop()">PURCHASE</button>
+    </section>
+    <div class="small-container">
+        <div class="row row-2">
+            <h2 onmouseenter="readAloud(this)" onmouseleave="readStop()">Related Products</h2>
+            <a href="/products" class="btn" onmouseenter="readAloud(this)" onmouseleave="readStop()">View More   <i class="fas fa-arrow-right"></i> </a>
+
+        </div>
+    </div>
+
+    <div class="small-container">
+        <div class="row">
+            <div class="col-4">
+                <a href="/sandal"><img src="static/images/sandal.jpg" alt="ABIOT Women Stylish Trending Fancy Flat Fashion sandal"></a>
+                <br><br><br>
+                <a href="/sandal">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">ABIOT Women Stylish Trending Fancy Flat Fashion sandal</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.599')" onmouseleave="readStop()">Rs.599</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.789')" onmouseleave="readStop()">
+                    Rs.789
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/handbag"><img src="static/images/handbag.jpg" height="270px" alt="Mammon Women's stylish Handbags"></a>
+                <a href="/handbag">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Mammon Women's stylish Handbags</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.399')" onmouseleave="readStop()">Rs.399</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.895')" onmouseleave="readStop()">
+                    Rs.895
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/earring"><img src="static/images/earring.jpg" height="250px" alt="Queen Be Antique Gold and Diamond Chandelier Earrings For Women "></a>
+                <br><br>
+                <a href="/earring">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Queen Be Antique Gold and Diamond Chandelier Earrings For Women </h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.569')" onmouseleave="readStop()">Rs.569</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.569')" onmouseleave="readStop()">
+                    Rs.789
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/jeans"><img src="static/images/jeans.jpg" height="250px" alt="Miss Olive Women's Skinny fit Jeans"></a>
+                <br><br><br>
+                <a href="/jeans">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Miss Olive Women's Skinny fit Jeans</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.809')" onmouseleave="readStop()">Rs.809</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.1,099')" onmouseleave="readStop()">
+                    Rs.1,099
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download Our App</h3>
+                    <h4 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download App for Android and iOS mobile phone.</h4>
+                    <div class="app-logo">
+                        <br>
+                        <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Get it on</p>
+                        <br>
+                        <img src="static/images/play-store.png" alt="" onmouseenter="read('Google play')" onmouseleave="readStop()">
+                        <img src="static/images/app-store.png" alt="" onmouseenter="read('App Store')" onmouseleave="readStop()">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="static/images/logo.png" alt="" onmouseenter="read('Trendy Stop')" onmouseleave="readStop()">
+                    <p onmouseenter="readAloud(this)" onmouseleave="readStop()">We aim to provide user-friendly services. <br>Your happiness is our priority!</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Useful Links</h3>
+                    <ul>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Coupons</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Blog Post</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Return Policy</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Follow Us</h3>
+                    <ul>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-facebook-f"></i> Facebook</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-twitter"></i> Twitter</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-instagram"></i> Instagram</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright" onmouseenter="readAloud(this)" onmouseleave="readStop()"> &copy; Copyright 2022 @Trendy Stop</p>
+            </hr>
+        </div>
+    </div>
+    </div>
+    <script>
+        /* JS comes here */
+        var msg = new SpeechSynthesisUtterance();
+        // var enable=true;
+        // function clkfun(){
+        //     enable=!enable;
+        // }
+        function readStop() {
+            window.speechSynthesis.cancel(msg);
+        }
+
+        function read(txt) {
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(txt));
+        }
+
+        function readAloud(ctrl) {
+            //if(enable==true){
+            msg.text = ctrl.innerHTML;
+            window.speechSynthesis.speak(msg);
+            //}
+        }
+    </script>
+    <!-- js for product gallery -->
+
+    <script type="text/javascript">
+        var ProductImg = document.getElementById("ProductImg");
+        console.log("hi");
+        var SmallImg = document.getElementsByClassName("small-img");
+        SmallImg[0].onclick = function() {
+            ProductImg.src = SmallImg[0].src;
+        }
+        SmallImg[1].onclick = function() {
+            ProductImg.src = SmallImg[1].src;
+        }
+        SmallImg[2].onclick = function() {
+            ProductImg.src = SmallImg[2].src;
+        }
+        SmallImg[3].onclick = function() {
+            ProductImg.src = SmallImg[3].src;
+        }
+    </script>
+</body>
+
+</html>

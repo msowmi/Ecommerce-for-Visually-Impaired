@@ -1,0 +1,283 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/styles/style.css">
+<style>
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #e7b5eb;
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+input[type=submit]:hover{
+  background-color: #82085b;
+  color: white;
+
+}
+/* Style the container for inputs */
+.cont {
+  background-image: linear-gradient(to bottom right,#e37419,#1f366b);;
+  padding: 20px;
+  width:500px;
+  margin: 40px;
+  border-radius: 20px;
+}
+.cont h3{
+  font-family: cursive;
+}
+#heading{
+  color: white;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+
+</style>
+</head>
+<body>
+  <div class="bg">
+    <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+        </div>
+        <div class="nav">
+           <label for="toggle">&#9776;</label>
+           <input type="checkbox" id="toggle"/>
+           <div class="menu">
+            <a href="/" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Home</a>
+            <a href="/products" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Products</a>
+             <a href="/about" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">About</a>
+             <a href="/contact" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact</a>
+             <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</a>
+             <a href="/sign" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</a>
+           </div>
+        </div>
+      </div>
+      <br><br>
+
+
+      <div class="container2">
+
+        <marquee onmouseenter="readAloud(this)" onmouseleave="readStop()">Weekend offer....30% off on any product you pick! Discover the stylish you...we are here with wide range of products! </marquee>
+    </div>
+      <div class="row">
+        <div class="col-2">
+          <h1 onmouseenter="readAloud(this)" onmouseleave="readStop()">Give Your Workout <br>A New Style!</h1>
+          <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Grab all that you need from a single hub....<br>Unlock the Goddess in you!</p>
+          <a href="products.html" class="btn" onmouseenter="readAloud(this)" onmouseleave="readStop()">Explore Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="col-2">
+          <img src="static/images/banner2.png" alt="banner">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+  <center>
+    <h2 id="heading" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</h2>
+  <div class="cont" align="center">
+    <form action="success2.html">
+      <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Username</h3>
+
+      <input id="no" type="text" id="usrname" name="usrname" required onmouseenter="read('Enter your username')" onmouseleave="readStop()">
+        <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Email id</h3>
+
+      <input type="text" id="usrname" name="usrname" required onmouseenter="read('Enter yor email id')" onmouseleave="readStop()">
+        <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Password</h3>
+
+      <input type="password" id="psw" name="psw" onmouseenter="read('Enter password')" onmouseleave="readStop()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+      <a href="success2.html"><input type="submit" value="Submit" onmouseenter="read('Submit')" onmouseleave="readStop()"></a>
+    </form>
+  </div>
+  </center>
+
+  <div id="message">
+    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Password must contain the following:</h3>
+    <p id="letter" class="invalid"  onmouseenter="readAloud(this)" onmouseleave="readStop()">A <b >lowercase</b> letter</p>
+    <p id="capital" class="invalid"  onmouseenter="readAloud(this)" onmouseleave="readStop()">A <b>capital (uppercase)</b> letter</p>
+    <p id="number" class="invalid"  onmouseenter="readAloud(this)" onmouseleave="readStop()">A <b>number</b></p>
+    <p id="length" class="invalid"  onmouseenter="readAloud(this)" onmouseleave="readStop()">Minimum <b>8 characters</b></p>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download Our App</h3>
+          <h4 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download App for Android and iOS mobile phone.</h4>
+          <div class="app-logo">
+            <br>
+            <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Get it on</p>
+            <br>
+            <img src="static/images/play-store.png" alt=""  onmouseenter="read('Google play')" onmouseleave="readStop()">
+            <img src="static/images/app-store.png" alt="" onmouseenter="read('App Store')" onmouseleave="readStop()">
+          </div>
+        </div>
+        <div class="footer-col-2">
+          <img src="static/images/logo.png" alt="" onmouseenter="read('Trendy Stop')" onmouseleave="readStop()">
+          <p onmouseenter="readAloud(this)" onmouseleave="readStop()">We aim to provide user-friendly services. <br>Your happiness is our priority!</p>
+        </div>
+        <div class="footer-col-3">
+          <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Useful Links</h3>
+          <ul>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Coupons</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Blog Post</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Return Policy</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Join Affiliate</li>
+          </ul>
+        </div>
+        <div class="footer-col-4">
+          <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Follow Us</h3>
+          <ul>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-facebook-f"></i>  Facebook</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-twitter"></i>  Twitter</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-instagram"></i> Instagram</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="Copyright" onmouseenter="readAloud(this)" onmouseleave="readStop()"> &copy; Copyright 2022 @Trendy Stop</p>
+     </hr>
+    </div>
+  </div>
+    </div>
+    <script>
+      /* JS comes here */
+      var msg = new SpeechSynthesisUtterance();
+      // var enable=true;
+      // function clkfun(){
+      //     enable=!enable;
+      // }
+      function readStop(){
+          window.speechSynthesis.cancel(msg);
+      }
+      function read(txt){
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(txt));
+        }
+      function readAloud(ctrl) {
+          //if(enable==true){ 
+              msg.text = ctrl.innerHTML;
+              window.speechSynthesis.speak(msg);
+          //}
+      }
+      
+  </script>
+
+<script>
+var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+
+</body>
+</html>

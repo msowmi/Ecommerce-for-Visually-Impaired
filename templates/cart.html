@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="static/styles/style.css">
+<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <title>List</title>
+    <style>
+        .top{
+    background-color: bisque;
+    text-align: center;
+    padding: 10px;
+
+}
+.bt{
+    background-color: rgb(196, 165, 127);
+}
+.btn-group{
+    width: 40px;
+}
+.btn btn-secondary{
+    background-color: bisque;
+
+}
+.head1{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px;
+    font-size: xx-large;
+    text-align: center;
+
+}
+
+    </style>
+</head>
+<body style="background-color:#49074f;">
+
+    <div class="navbar">
+        <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+        </div>
+        <div class="nav">
+           <label for="toggle">&#9776;</label>
+           <input type="checkbox" id="toggle"/>
+           <div class="menu">
+            <a href="/" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Home</a>
+            <a href="/products" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Products</a>
+             <a href="/about" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">About</a>
+             <a href="/contact" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact</a>
+             {% if data %}
+                <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Logout</a>
+                {% else %}
+             <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</a>
+             <a href="/sign" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</a>
+             {% endif %}           </div>
+        </div>
+      </div>
+
+    <div class="jumbotron jumbotron-fluid" style="margin-left: 50px;margin-right: 50px;margin-top: 50px;background-color:  #49074f ;font-family: 'Courier New', Courier, monospace;" >
+
+     <table class="table table-striped table-bordered" style="background-color: rgb(255, 196, 228);padding: 500px;">
+        <thead>
+            <td>Item</td>
+            <td>Price</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td onmouseenter="readAloud(this)" onmouseleave="readStop()">{{row["detail"]}}</td>
+               <td onmouseenter="readAloud(this)" onmouseleave="readStop()">{{row["cred"]}}</td>
+            </tr>
+
+         {% endfor %}
+         <tr>
+             <td>Total</td>
+             <td>{{sum}}</td>
+         </tr>
+      </table>
+        <button class="btn btn-primary btn-purchase" type="button" onmouseenter="readAloud(this)" onmouseleave="readStop()"><a href="/purchase">PURCHASE</a> </button>
+    </div>
+    <div class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col-1">
+              <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download Our App</h3>
+              <h4 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download App for Android and iOS mobile phone.</h4>
+              <div class="app-logo">
+                <br>
+                <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Get it on</p>
+                <br>
+                <img src="static/images/play-store.png" alt=""  onmouseenter="read('Google play')" onmouseleave="readStop()">
+                <img src="static/images/app-store.png" alt="" onmouseenter="read('App Store')" onmouseleave="readStop()">
+              </div>
+            </div>
+            <div class="footer-col-2">
+              <img src="static/images/logo.png" alt="" onmouseenter="read('Trendy Stop')" onmouseleave="readStop()">
+              <p onmouseenter="readAloud(this)" onmouseleave="readStop()">We aim to provide user-friendly services. <br>Your happiness is our priority!</p>
+            </div>
+            <div class="footer-col-3">
+              <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Useful Links</h3>
+              <ul>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Coupons</li>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Blog Post</li>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Return Policy</li>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Join Affiliate</li>
+              </ul>
+            </div>
+            <div class="footer-col-4">
+              <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Follow Us</h3>
+              <ul>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-facebook-f"></i>  Facebook</li>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-twitter"></i>  Twitter</li>
+                <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-instagram"></i> Instagram</li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <p class="Copyright" onmouseenter="readAloud(this)" onmouseleave="readStop()"> &copy; Copyright 2022 @Trendy Stop</p>
+         </hr>
+        </div>
+      </div>
+</body>
+</html>

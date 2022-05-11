@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Products | Trendy Stop</title>
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <style media="screen">
+        body {
+            margin: 0;
+            background: linear-gradient(#acb6e5, #86fde8);
+        }
+    </style>
+    <script>
+        function myFunction() {
+            // document.getElementById("result").innerHTML = "";
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            // res = document.getElementById("result");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            var f=0;
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    // li[i].style.display = "";
+                    f=1;
+                    read('Search results for ' + filter +' found. Navigating to the page.');
+                    var loc = a.getAttribute("href");
+                    window.location.replace('./'+ loc);
+                }
+                else {
+                    li[i].style.display = "none";
+                }
+            }
+            if(f==0){
+                document.getElementById("result").innerHTML = "Search results for " + filter +" : No results found";
+                read('Search results for ' + filter +' : No results found');
+            }
+        }
+//         function refresh(){
+//     document.getElementById("result").innerHTML = "";
+//     document.getElementById("myInput").focus= "none";
+//     document.getElementById('myInput').value="";
+//     ul = document.getElementById("myUL");
+//     li = ul.getElementsByTagName("li");
+//     for (i = 0; i < li.length; i++) {
+//     li[i].style.display = "";
+//     }
+// }
+        /* JS comes here */
+        function runSpeechRecognition() {
+        // get output div reference
+        var output = document.getElementById("myInput");
+        // new speech recognition object
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+        recognition.onresult = function(event) {
+            var transcript = event.results[0][0].transcript
+            output.value = transcript
+            output.classList.remove("hide");
+            recognition.abort();
+            myFunction();
+
+        };
+
+        // start recognition
+        recognition.start();
+    }
+    </script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+      <div class="navbar">
+        <!-- <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+        </div> -->
+        <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+          <!-- <h5 id="welcome">welcome</h5> -->
+          <!-- <h2 id="name">Sowmya</h2> -->
+          {% if data %}
+      <h5 id="welcome">welcome</h5>
+     <h1 id="name">{{data}}</h1>
+     {% endif %}
+        </div>
+        <div class="nav">
+           <label for="toggle">&#9776;</label>
+           <input type="checkbox" id="toggle"/>
+           <div class="menu">
+            <a href="/" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Home</a>
+            <a href="/products" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Products</a>
+             <a href="/about" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">About</a>
+             <a href="/contact" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact</a>
+               {% if data %}
+                <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Logout</a>
+                {% else %}
+             <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</a>
+             <a href="/sign" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</a>
+             {% endif %}
+           </div>
+        </div>
+      </div>
+
+        </div>
+    </div>
+    <br><br>
+    <div class="filter" align="center">
+        <h2 id="fil" onmouseenter="readAloud(this)" onmouseleave="readStop()">Search for your desires..</h2>
+        <i class="fa fa-search icon"></i>
+        <input type="text" id="myInput" ondblclick="runSpeechRecognition()" placeholder="Search for Products.." title="search" onmouseenter="read('Double click to Search for products...')" onmouseleave="readStop()">
+        <div id="result" onmouseenter="readAloud(this)" onmouseleave="readStop()" onclick="refresh()"></div>
+        <ul id="myUL">
+            <div class="">
+                <li><a href="/earring" onmouseenter="readAloud(this)" onmouseleave="readStop()">Earring</a></li>
+                <li><a href="/frock" onmouseenter="readAloud(this)" onmouseleave="readStop()">Frock</a></li>
+
+                <li><a href="/girl" onmouseenter="readAloud(this)" onmouseleave="readStop()">Girls Casuals</a></li>
+
+            </div>
+            <div class="">
+                <li><a href="/handbag" onmouseenter="readAloud(this)" onmouseleave="readStop()">Handbag</a></li>
+                <li><a href="/jacket" onmouseenter="readAloud(this)" onmouseleave="readStop()">Jacket</a></li>
+                <li><a href="/jeans" onmouseenter="readAloud(this)" onmouseleave="readStop()">Jeans</a></li>
+
+            </div>
+
+            <div class="">
+                <li><a href="/kidswear" onmouseenter="readAloud(this)" onmouseleave="readStop()">Kids wear</a></li>
+                <li><a href="/kurta" onmouseenter="readAloud(this)" onmouseleave="readStop()">Kurta</a></li>
+                <li><a href="/sandal" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sandal</a></li>
+
+            </div>
+            <div class="">
+                <li><a href="/slippers" onmouseenter="readAloud(this)" onmouseleave="readStop()">Slippers for men</a></li>
+                <li><a href="/sneakers" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sneakers</a></li>
+                <li><a href="/wallet" onmouseenter="readAloud(this)" onmouseleave="readStop()">Wallet</a></li>
+            </div>
+        <!-- <ul onmouseenter="read('navigate to your left')" onmouseleave="readStop()"></ul> -->
+            <div onmouseenter="read('navigate to your left')" onmouseleave="readStop()" style="opacity: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum cupiditate repellat pariatur ipsam corporis rem obcaecati sapiente voluptates quis maxime, delectus perspiciatis debitis sed. Reprehenderit quia harum exercitationem dolore qui!</div>
+            <!-- <span onmouseenter="read('navigate to your left')" onmouseleave="readStop()" style="color:#acb6e5">Hi</span>
+            <span onmouseenter="read('navigate to your left')" onmouseleave="readStop()"></span>
+            <span onmouseenter="read('navigate to your left')" onmouseleave="readStop()"></span> -->
+
+        </ul>
+    </div>
+    <div class="small-container">
+        <div class="row row-2">
+            <h2 onmouseenter="readAloud(this)" onmouseleave="readStop()">All Products</h2>
+
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a href="/kurta"><img src="static/images/kurta2.png" height="250px" alt="Women Kurta and Pant Set Rayon"></a>
+                <br><br>
+                <a href="/kurta">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Women Kurta and Pant Set Rayon</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.569')" onmouseleave="readStop()">Rs.569</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.789')" onmouseleave="readStop()">
+                    Rs.789
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/kidswear"><img src="static/images/kidswear.jpg" height="270px" alt=""></a>
+                <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Half Sleeves Cotton Suit for New Born Baby boy </h4>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.659')" onmouseleave="readStop()">Rs.659</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.999')" onmouseleave="readStop()">
+                    Rs.999
+                </p>
+            </div>
+
+            <div class="col-4">
+                <a href="/jacket"><img src="static/images/jacket.jpg" alt="jacket"></a>
+                <br><br><br>
+                <a href="/jacket">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">All Weather Gym Jacket for Men</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.999')" onmouseleave="readStop()">Rs.999</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.2,000')" onmouseleave="readStop()">
+                    Rs.2,000
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/handbag"><img src="static/images/handbag.jpg" height="270px" alt="Mammon Women's stylish Handbags"></a>
+                <a href="/handbag">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Mammon Women's stylish Handbags</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.399')" onmouseleave="readStop()">Rs.399</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.895')" onmouseleave="readStop()">
+                    Rs.895
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a href="/girl"><img src="static/images/girl.jpg" height="270px" alt="Baby Girls' Regular Fit Clothing Set"></a>
+                <a href="/girl">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Baby Girls' Regular Fit Clothing Set </h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.474')" onmouseleave="readStop()">Rs.474</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.769')" onmouseleave="readStop()">
+                    Rs.769
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/frock"><img src="static/images/frock.jpg" height="250px" alt="Baby Girl's A-line Knee Length Frock"></a>
+                <br><br>
+                <a href="/frock">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Baby Girl's A-line Knee Length Frock</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.549')" onmouseleave="readStop()">Rs.549</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.849')" onmouseleave="readStop()">
+                    Rs.849
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/jeans"><img src="static/images/jeans.jpg" height="250px" alt="Miss Olive Women's Skinny fit Jeans"></a>
+                <br><br><br>
+                <a href="/jeans">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Miss Olive Women's Skinny fit Jeans</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.809')" onmouseleave="readStop()">Rs.809</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.1,099')" onmouseleave="readStop()">
+                    Rs.1,099
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/sneakers"><img src="static/images/sneak.jpg" height="270px" alt="Converse Unisex Stylish Sneakers"></a>
+                <a href="/sneakers">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Converse Black Unisex Stylish Sneakers</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+
+                <p align="center" onmouseenter="read('Discount Price Rs.999')" onmouseleave="readStop()">Rs.999</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.2,399')" onmouseleave="readStop()">
+                    Rs.2,399
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/slippers"><img src="static/images/slippers.jpg" height="270px" alt="Fabbmate Latest Collection of Men's Sandals Pack Of 2"></a>
+                <a href="/slippers">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Fabbmate Latest Collection of Men's Sandals Pack Of 2 </h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.499')" onmouseleave="readStop()">Rs.499</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.689')" onmouseleave="readStop()">
+                    Rs.689
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/earring"><img src="static/images/earring.jpg" height="250px" alt="Queen Be Antique Gold and Diamond Chandelier Earrings For Women "></a>
+                <br><br>
+                <a href="/earring">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Queen Be Antique Gold and Diamond Chandelier Earrings For Women </h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Rs.569</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.789')" onmouseleave="readStop()">
+                    Rs.789
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/sandal"><img src="static/images/sandal.jpg" alt="ABIOT Women Stylish Trending Fancy Flat Fashion sandal"></a>
+                <br><br><br>
+                <a href="/sandal">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">ABIOT Women Stylish Trending Fancy Flat Fashion sandal</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 3 1/2 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.599')" onmouseleave="readStop()">Rs.599</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.789')" onmouseleave="readStop()">
+                    Rs.789
+                </p>
+            </div>
+            <div class="col-4">
+                <a href="/wallet"><img src="static/images/wallet.jpg" height="270px" alt="Mens Genuine Leather Wallet RFID Blocking Bifold Slim Purse with Credit Card Holder Slots"></a>
+                <a href="/wallet">
+                    <h4 align="center" onmouseenter="readAloud(this)" onmouseleave="readStop()">Mens Genuine Leather Wallet RFID Blocking Bifold Slim Purse with Credit Card Holder Slots</h4>
+                </a>
+                <div class="rating" align="center" onmouseenter="read('Rating: 4 Stars')" onmouseleave="readStop()">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p align="center" onmouseenter="read('Discount Price Rs.499')" onmouseleave="readStop()">Rs.499</p>
+                <p align="center" style="text-decoration: line-through;" onmouseenter="read('Original price Rs.795')" onmouseleave="readStop()">
+                    Rs.795
+                </p>
+            </div>
+        </div>
+        <div class="page-btn">
+            <span onmouseenter="readAloud(this)" onmouseleave="readStop()">1</span>
+            <span onmouseenter="readAloud(this)" onmouseleave="readStop()">2</span>
+            <span onmouseenter="readAloud(this)" onmouseleave="readStop()">3</span>
+            <span onmouseenter="readAloud(this)" onmouseleave="readStop()">4</span>
+            <span><i class="fas fa-arrow-right"></i></span>
+        </div>
+    </div>
+
+
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download Our App</h3>
+                    <h4 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download App for Android and iOS mobile phone.</h4>
+                    <div class="app-logo">
+                        <br>
+                        <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Get it on</p>
+                        <br>
+                        <img src="static/images/play-store.png" alt="" onmouseenter="read('Google play')" onmouseleave="readStop()">
+                        <img src="static/images/app-store.png" alt="" onmouseenter="read('App Store')" onmouseleave="readStop()">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="static/images/logo.png" alt="" onmouseenter="read('Trendy Stop')" onmouseleave="readStop()">
+                    <p onmouseenter="readAloud(this)" onmouseleave="readStop()">We aim to provide user-friendly services. <br>Your happiness is our priority!</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Useful Links</h3>
+                    <ul>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Coupons</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Blog Post</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Return Policy</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Follow Us</h3>
+                    <ul>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-facebook-f"></i> Facebook</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-twitter"></i> Twitter</li>
+                        <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-instagram"></i> Instagram</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright" onmouseenter="readAloud(this)" onmouseleave="readStop()"> &copy; Copyright 2022 @Trendy Stop</p>
+            </hr>
+        </div>
+    </div>
+    </div>
+    <script>
+        var msg = new SpeechSynthesisUtterance();
+        function readStop() {
+            window.speechSynthesis.cancel(msg);
+        }
+        function read(txt) {
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(txt));
+        }
+        function readAloud(ctrl) {
+            msg.text = ctrl.innerHTML;
+            window.speechSynthesis.speak(msg);
+        }
+
+    </script>
+</body>
+
+</html>

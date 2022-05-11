@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Login | Trendy Stop</title>
+      <link rel="stylesheet" href="static/styles/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+      <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  </head>
+  <body>
+    <div class="bg">
+      <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="/"><img src="static/images/logo.png" width="125px" alt="logo"></a>
+        </div>
+        <div class="nav">
+           <label for="toggle">&#9776;</label>
+           <input type="checkbox" id="toggle"/>
+           <div class="menu">
+            <a href="/" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Home</a>
+            <a href="/products" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Products</a>
+             <a href="/about" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">About</a>
+             <a href="/contact" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Contact</a>
+             <a href="/login" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</a>
+             <a href="/sign" id="head" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign Up</a>
+           </div>
+        </div>
+      </div>
+      <br><br>
+
+
+      <div class="container2">
+
+        <marquee onmouseenter="readAloud(this)" onmouseleave="readStop()">Weekend offer....30% off on any product you pick! Discover the stylish you...we are here with wide range of products! </marquee>
+    </div>
+      <div class="row">
+        <div class="col-2">
+          <h1 onmouseenter="readAloud(this)" onmouseleave="readStop()">Give Your Workout <br>A New Style!</h1>
+          <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Grab all that you need from a single hub....<br>Unlock the Goddess in you!</p>
+          <a href="/Products" class="btn" onmouseenter="readAloud(this)" onmouseleave="readStop()">Explore Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="col-2">
+          <img src="static/images/banner2.png" alt="banner">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-box">
+    <h1 onmouseenter="readAloud(this)" onmouseleave="readStop()">Login</h1>
+    <div class="textbox">
+      <i class="fas fa-user"></i>
+      <input type="text" placeholder="Username" id="fill1" onmouseenter="read('Enter Username')" onmouseleave="readStop()">
+    </div>
+
+    <div class="textbox">
+      <i class="fas fa-lock"></i>
+      <input type="password" placeholder="Password" id="fill2" onmouseenter="read('Enter password')" onmouseleave="readStop()">
+    </div>
+    <br><br>
+    <a href="/success"><button id="fill" onclick="message()" class="lbtn" onmouseenter="readAloud(this)" onmouseleave="readStop()">Sign in</button></a>
+
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download Our App</h3>
+          <h4 onmouseenter="readAloud(this)" onmouseleave="readStop()">Download App for Android and iOS mobile phone.</h4>
+          <div class="app-logo">
+            <br>
+            <p onmouseenter="readAloud(this)" onmouseleave="readStop()">Get it on</p>
+            <br>
+            <img src="static/images/play-store.png" alt=""  onmouseenter="read('Google play')" onmouseleave="readStop()">
+            <img src="static/images/app-store.png" alt="" onmouseenter="read('App Store')" onmouseleave="readStop()">
+          </div>
+        </div>
+        <div class="footer-col-2">
+          <img src="static/images/logo.png" alt="" onmouseenter="read('Trendy Stop')" onmouseleave="readStop()">
+          <p onmouseenter="readAloud(this)" onmouseleave="readStop()">We aim to provide user-friendly services. <br>Your happiness is our priority!</p>
+        </div>
+        <div class="footer-col-3">
+          <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Useful Links</h3>
+          <ul>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Coupons</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Blog Post</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Return Policy</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()">Join Affiliate</li>
+          </ul>
+        </div>
+        <div class="footer-col-4">
+          <h3 onmouseenter="readAloud(this)" onmouseleave="readStop()">Follow Us</h3>
+          <ul>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-facebook-f"></i>  Facebook</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-twitter"></i>  Twitter</li>
+            <li onmouseenter="readAloud(this)" onmouseleave="readStop()"><i class="fab fa-instagram"></i> Instagram</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="Copyright" onmouseenter="readAloud(this)" onmouseleave="readStop()"> &copy; Copyright 2022 @Trendy Stop</p>
+     </hr>
+    </div>
+  </div>
+    </div>
+    <script>
+      /* JS comes here */
+      var msg = new SpeechSynthesisUtterance();
+      // var enable=true;
+      // function clkfun(){
+      //     enable=!enable;
+      // }
+      function readStop(){
+          window.speechSynthesis.cancel(msg);
+      }
+      function read(txt){
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(txt));
+        }
+      function readAloud(ctrl) {
+          //if(enable==true){
+              msg.text = ctrl.innerHTML;
+              window.speechSynthesis.speak(msg);
+          //}
+      }
+
+  </script>
+
+  </body>
+</html>
